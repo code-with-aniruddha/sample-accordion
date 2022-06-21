@@ -1,0 +1,21 @@
+<ul>
+  <li *ngFor="let faq of faqs; index as i">
+    <div
+      (click)="handleClick(i)"
+      [ngClass]="openIndex == i ? 'active' : ''"
+      class="question"
+    >
+      <div class="wrapper-text">
+        <h2 class="col-xs-3">Q{{ i + 1 }}</h2>
+        <span class="text col-xs-6">{{ faq.question }}</span>
+      </div>
+
+      <span class="plus col-xs-2"
+        ><i [ngClass]="openIndex == i ? 'rotate' : ''"></i
+      ></span>
+    </div>
+    <div [ngClass]="openIndex == i ? 'active' : ''" class="content">
+      <p>{{ faq.answer }}</p>
+    </div>
+  </li>
+</ul>
